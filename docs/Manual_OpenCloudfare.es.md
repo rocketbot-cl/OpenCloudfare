@@ -8,7 +8,7 @@ Módulo para abrir Google Chrome y resolver el captcha Cloudfare Turnstile.
 
 *Read this in other languages: [English](Manual_OpenCloudfare.md), [Português](Manual_OpenCloudfare.pr.md), [Español](Manual_OpenCloudfare.es.md)*
   
-![banner](imgs/BANNER_OPENCLOUDFARE.jpg)
+![banner](imgs/Banner_OpenCloudfare.jpg)
 ## Como instalar este módulo
   
 Para instalar el módulo en Rocketbot Studio, se puede hacer de dos formas:

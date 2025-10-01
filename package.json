@@ -74,8 +74,8 @@
                         },
                         "description": {
                             "es": "Define cuántas veces el driver intentará recargar la URL si la primera carga falla.",
-                            "en": "Retries",
-                            "pr": "Retries"
+                            "en": "Defines how many times the driver will attempt to reload the URL if the first load fails.",
+                            "pr": "Define quantas vezes o driver tentará recarregar a URL se o primeiro carregamento falhar."
                         },
                         "id": "retries",
                         "css": "col-md-4",
