@@ -1,0 +1,9 @@
+from r_seleniumbase.translate import chinese  # noqa
+from r_seleniumbase.translate import dutch  # noqa
+from r_seleniumbase.translate import french  # noqa
+from r_seleniumbase.translate import italian  # noqa
+from r_seleniumbase.translate import japanese  # noqa
+from r_seleniumbase.translate import korean  # noqa
+from r_seleniumbase.translate import portuguese  # noqa
+from r_seleniumbase.translate import russian  # noqa
+from r_seleniumbase.translate import spanish  # noqa

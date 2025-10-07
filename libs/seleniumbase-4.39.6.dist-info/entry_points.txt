@@ -1,0 +1,15 @@
+[console_scripts]
+sbase = r_seleniumbase.console_scripts.run:main
+r_seleniumbase = r_seleniumbase.console_scripts.run:main
+
+[nose.plugins]
+base_plugin = r_seleniumbase.plugins.base_plugin:Base
+db_reporting = r_seleniumbase.plugins.db_reporting_plugin:DBReporting
+page_source = r_seleniumbase.plugins.page_source:PageSource
+s3_logging = r_seleniumbase.plugins.s3_logging_plugin:S3Logging
+screen_shots = r_seleniumbase.plugins.screen_shots:ScreenShots
+r_selenium = r_seleniumbase.plugins.selenium_plugin:seleniumBrowser
+test_info = r_seleniumbase.plugins.basic_test_info:BasicTestInfo
+
+[pytest11]
+r_seleniumbase = r_seleniumbase.plugins.pytest_plugin
