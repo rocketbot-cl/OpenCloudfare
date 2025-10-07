@@ -188,10 +188,10 @@ The default mode (``sticky``) lets you see a lot more lines of code from the deb
 
 ### More examples:
 
-**``Pdb+``** is used by packages such as **``seleniumbase``**:
+**``Pdb+``** is used by packages such as **``r_seleniumbase``**:
 
-* https://pypi.org/project/seleniumbase/
-* https://github.com/seleniumbase/seleniumBase
+* https://pypi.org/project/r_seleniumbase/
+* https://github.com/r_seleniumbase/r_seleniumbase
 
 --------
 
@@ -199,4 +199,4 @@ The default mode (``sticky``) lets you see a lot more lines of code from the deb
 
 --------
 
-(**Pdb+** is maintained by the [seleniumBase Dev Team](https://github.com/seleniumbase/seleniumBase))
+(**Pdb+** is maintained by the [r_seleniumbase Dev Team](https://github.com/r_seleniumbase/r_seleniumbase))

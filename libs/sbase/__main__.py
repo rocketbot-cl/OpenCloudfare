@@ -3,7 +3,7 @@ import sys
 
 # Remove "" and current working directory from the first entry
 # of sys.path (if present) to avoid using the current directory
-# in seleniumBase commands when invoked as "python -m sbase <command>"
+# in r_seleniumbase commands when invoked as "python -m sbase <command>"
 if sys.path[0] in ("", os.getcwd()):
     sys.path.pop(0)
 
@@ -13,7 +13,7 @@ if __package__ == "":
 
 if __name__ == "__main__":
     import warnings
-    from seleniumbase.console_scripts.run import main
+    from r_seleniumbase.console_scripts.run import main
 
     warnings.filterwarnings(
         "ignore", category=DeprecationWarning, module=".*packaging\\.version"

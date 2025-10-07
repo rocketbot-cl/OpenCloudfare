@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: sbvirtualdisplay
 Version: 1.4.0
-Summary: A customized pyvirtualdisplay for seleniumBase.
+Summary: A customized pyvirtualdisplay for r_seleniumbase.
 Home-page: https://github.com/mdmintz/sbVirtualDisplay
 Author: Michael Mintz
 Author-email: mdmintz@gmail.com
@@ -9,10 +9,10 @@ Maintainer: Michael Mintz
 License: MIT
 Project-URL: Changelog, https://github.com/mdmintz/sbVirtualDisplay/releases
 Project-URL: Download, https://pypi.org/project/sbvirtualdisplay/#files
-Project-URL: seleniumBase, https://github.com/seleniumbase/seleniumBase
+Project-URL: r_seleniumbase, https://github.com/r_seleniumbase/r_seleniumbase
 Project-URL: PyPI, https://pypi.org/project/sbvirtualdisplay/
 Project-URL: Source, https://github.com/mdmintz/sbVirtualDisplay
-Keywords: Xvfb Xephyr Virtual Display Linux seleniumBase
+Keywords: Xvfb Xephyr Virtual Display Linux r_seleniumbase
 Platform: Windows
 Platform: Linux
 Platform: Mac OS-X
@@ -64,7 +64,7 @@ Requires-Dist: pycodestyle==2.12.1; python_version >= "3.9" and extra == "flake8
 
 # sbVirtualDisplay (💻) [![](https://img.shields.io/pypi/v/sbvirtualdisplay.svg)](https://pypi.python.org/pypi/sbvirtualdisplay)
 
-A customized [pyvirtualdisplay](https://github.com/ponty/PyVirtualDisplay) for use with [seleniumBase](https://github.com/seleniumbase/seleniumBase) automation.
+A customized [pyvirtualdisplay](https://github.com/ponty/PyVirtualDisplay) for use with [r_seleniumbase](https://github.com/r_seleniumbase/r_seleniumbase) automation.
 
 ## Usage example:
 

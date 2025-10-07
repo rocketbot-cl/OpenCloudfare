@@ -32,14 +32,14 @@ cur_path = os.path.join(base_path, 'modules', 'OpenCloudfare', 'libs')
 
 if cur_path not in sys.path:
     sys.path.append(cur_path)
-
+    
 try:
-    from seleniumbase import Driver # type: 
-    import seleniumbase.config as sb_config
+    from r_seleniumbase import Driver # type: 
+    import r_seleniumbase.config as sb_config
     from r_selenium.webdriver.common.by import By
     from r_selenium.webdriver.support.ui import WebDriverWait
     from r_selenium.webdriver.support import expected_conditions as EC
-    import seleniumbase.core.browser_launcher as launcher
+    import r_seleniumbase.core.browser_launcher as launcher
     from time import sleep
 except Exception as e:
     import traceback
@@ -65,9 +65,18 @@ if module == "open_browser":
     url_ = GetParams("url")
     session = GetParams("session")
     r= int(GetParams("retries") if GetParams("retries") else 1)
-    var_ = GetParams("var_")
+    var_ = GetParams("var")
 
-    try:
+    try:        
+        import r_selenium as _sel
+        import r_seleniumbase as _sb
+
+        print(
+            f"[diag] selenium={getattr(_sel, '__version__', 'unknown')} "
+            f"({getattr(_sel, '__file__', 'unknown')}) | "
+            f"seleniumbase={getattr(_sb, '__version__', 'unknown')} "
+            f"({getattr(_sb, '__file__', 'unknown')})"
+        )
         mod_cloudfare = Driver(uc=True)
         mod_cloudfare.maximize_window()
         sleep(1)
@@ -82,8 +91,8 @@ if module == "open_browser":
         raise e
 
 if module == "solve_captcha":
-    session = GetParams("session") or "default"
-    var_ = GetParams("var") or "captcha_ok"
+    session = GetParams("session")
+    var_ = GetParams("var")
 
     try:
         driver = web.driver_list[session]
@@ -104,7 +113,7 @@ if module == "solve_captcha":
         SetVar(var_, False)
 
 if module == "close_browser":
-    session = GetParams("session") or "default"
+    session = GetParams("session")
     var_ = GetParams("var")
 
     try:

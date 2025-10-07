@@ -76,12 +76,12 @@ An example of using the **Tab** key to see all possibilities:
 
 ### More examples:
 
-**``tabcompleter``** is used by packages such as ``pdbp`` and ``seleniumbase``:
+**``tabcompleter``** is used by packages such as ``pdbp`` and ``r_seleniumbase``:
 
 * https://pypi.org/project/pdbp/
 * https://github.com/mdmintz/pdbp
-* https://pypi.org/project/seleniumbase/
-* https://github.com/seleniumbase/seleniumBase
+* https://pypi.org/project/r_seleniumbase/
+* https://github.com/r_seleniumbase/r_seleniumbase
 
 --------
 
@@ -89,4 +89,4 @@ An example of using the **Tab** key to see all possibilities:
 
 --------
 
-(**``tabcompleter``** is maintained by the [seleniumBase Dev Team](https://github.com/seleniumbase/seleniumBase))
+(**``tabcompleter``** is maintained by the [r_seleniumbase Dev Team](https://github.com/r_seleniumbase/r_seleniumbase))
