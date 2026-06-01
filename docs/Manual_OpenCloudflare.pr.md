@@ -28,6 +28,7 @@ Abre o navegador Chrome
 |Pasta de Downloads|Caminho para a pasta onde os downloads serão salvos.|C:/Users/User/Downloads|
 |Altura|Altura da janela do navegador em pixels. Será usado se ocorrer um erro ao maximizar a janela.|1080|
 |Largura|Largura da janela do navegador em pixels. Será usado se ocorrer um erro ao maximizar a janela.|1920|
+|Auto baixar PDF|Baixa automaticamente arquivos PDF em vez de abri-los no navegador.||
 |Session|Identificador de sessão|1|
 |Variável||res|
 

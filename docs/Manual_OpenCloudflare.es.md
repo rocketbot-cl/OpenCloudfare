@@ -28,6 +28,7 @@ Abre el navegador Chrome.
 |Carpeta de Descargas|Ruta hacia la carpeta donde se guardarán las descargas.|C:/Users/User/Downloads|
 |Alto|Altura de la ventana del navegador en píxeles. Será usado si ocurre un error al maximizar la ventana.|1080|
 |Ancho|Ancho de la ventana del navegador en píxeles. Será usado si ocurre un error al maximizar la ventana.|1920|
+|Auto descargar PDF|Descarga automáticamente archivos PDF en lugar de abrirlos en el navegador.||
 |Session|Identificador de sesión|1|
 |Variable||res|
 

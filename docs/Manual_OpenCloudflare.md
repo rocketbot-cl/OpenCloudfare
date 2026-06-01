@@ -28,6 +28,7 @@ Open a Chrome browser
 |Download Folder|Path to the folder where downloads will be saved.|C:/Users/User/Downloads|
 |Height|Browser window height in pixels. Will be used if an error occurs when maximizing the window.|1080|
 |Width|Browser window width in pixels. Will be used if an error occurs when maximizing the window.|1920|
+|Auto download PDF|Automatically download PDF files instead of opening them in the browser.||
 |Session|Session identifier|1|
 |Variable||res|
 
