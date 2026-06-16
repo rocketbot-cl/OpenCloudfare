@@ -78,6 +78,13 @@ if module == "open_browser":
     download_dir = GetParams("download_dir")
     height = GetParams("height") or "1080"
     width = GetParams("width") or "1920"
+    auto_download_pdf = GetParams("auto_download_pdf") or False
+
+    if isinstance(auto_download_pdf, str):
+        auto_download_pdf = auto_download_pdf.strip().lower() in ["true", "1", "yes"]
+    else:
+        auto_download_pdf = bool(auto_download_pdf)
+
     try:
         from r_seleniumbase.core import download_helper
 
@@ -86,7 +93,7 @@ if module == "open_browser":
         else:
             download_helper.set_downloads_folder(str(Path.home() / "Downloads"))
         
-        mod_cloudfare = Driver(uc=True)
+        mod_cloudfare = Driver(uc=True, external_pdf=auto_download_pdf)
 
         try:
             mod_cloudfare.maximize_window()

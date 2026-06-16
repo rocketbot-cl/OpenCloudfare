@@ -14,7 +14,7 @@
     "mac": false,
     "docker": false,
     "name": "OpenCloudflare",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "dependencies": {},
     "title": {
         "en": "OpenCloudflare",
@@ -148,6 +148,23 @@
                         "required": false
                     },
                     {
+                        "type": "checkbox",
+                        "title": {
+                            "es": "Auto descargar PDF",
+                            "en": "Auto download PDF",
+                            "pr": "Auto baixar PDF"
+                        },
+                        "description": {
+                            "es": "Descarga automáticamente archivos PDF en lugar de abrirlos en el navegador.",
+                            "en": "Automatically download PDF files instead of opening them in the browser.",
+                            "pr": "Baixa automaticamente arquivos PDF em vez de abri-los no navegador."
+                        },
+                        "id": "auto_download_pdf",
+                        "css": "col-md-4",
+                        "default": false,
+                        "required": false
+                    },
+                    {
                         "type": "input",
                         "placeholder": {
                             "es": "1",
@@ -165,7 +182,7 @@
                             "pr": "Session"
                         },
                         "id": "session",
-                        "css": "col-md-6",
+                        "css": "col-md-4",
                         "data_type": "str",
                         "required": false
                     },
@@ -182,7 +199,7 @@
                             "pr": "Variável"
                         },
                         "id": "var",
-                        "css": "col-md-6",
+                        "css": "col-md-4",
                         "data_type": "str",
                         "required": false,
                         "remove_vars": true
