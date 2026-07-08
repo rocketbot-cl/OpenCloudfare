@@ -70,9 +70,57 @@ def is_a_maximize_error(error):
     )
 
 
+def get_by_selector(data_type):
+    selector_map = {
+        "xpath": By.XPATH,
+        "css": By.CSS_SELECTOR,
+        "id": By.ID,
+        "name": By.NAME,
+        "link_text": By.LINK_TEXT,
+        "partial_link_text": By.PARTIAL_LINK_TEXT,
+        "tag_name": By.TAG_NAME,
+        "class_name": By.CLASS_NAME,
+    }
+    return selector_map.get((data_type or "xpath").strip().lower(), By.XPATH)
+
+
+def get_wait_condition(condition, locator):
+    condition_map = {
+        "clickable": EC.element_to_be_clickable,
+        "visible": EC.visibility_of_element_located,
+        "not_visible": EC.invisibility_of_element_located,
+        "present": EC.presence_of_element_located,
+    }
+    wait_condition = condition_map.get((condition or "clickable").strip().lower(), EC.element_to_be_clickable)
+    return wait_condition(locator)
+
+
+def get_driver_from_session(web_obj, session_param):
+    session_key = session_param if session_param not in [None, ""] else None
+    available_sessions = list(web_obj.driver_list.keys())
+
+    if session_key is not None and session_key in web_obj.driver_list:
+        return session_key, web_obj.driver_list[session_key]
+
+    actual_session = getattr(web_obj, "driver_actual_id", None)
+    if actual_session in web_obj.driver_list:
+        return actual_session, web_obj.driver_list[actual_session]
+
+    if "default" in web_obj.driver_list:
+        return "default", web_obj.driver_list["default"]
+
+    if None in web_obj.driver_list:
+        return None, web_obj.driver_list[None]
+
+    if "" in web_obj.driver_list:
+        return "", web_obj.driver_list[""]
+
+    raise Exception(f"No active browser session found. Available sessions: {available_sessions}")
+
+
 if module == "open_browser":
     url_ = GetParams("url")
-    session = GetParams("session")
+    session = GetParams("session") or "default"
     r= int(GetParams("retries") if GetParams("retries") else 1)
     var_ = GetParams("var")
     download_dir = GetParams("download_dir")
@@ -121,11 +169,11 @@ if module == "open_browser":
         raise e
 
 if module == "solve_captcha":
-    session = GetParams("session")
+    session = GetParams("session") or "default"
     var_ = GetParams("var")
 
     try:
-        driver = web.driver_list[session]
+        _, driver = get_driver_from_session(web, session)
         print("Looking Captcha . . .")
         sleep(1.5)
         try:
@@ -143,14 +191,14 @@ if module == "solve_captcha":
         SetVar(var_, False)
 
 if module == "close_browser":
-    session = GetParams("session")
+    session = GetParams("session") or "default"
     var_ = GetParams("var")
 
     try:
-        if session in web.driver_list:
-            driver = web.driver_list[session]
+        resolved_session, driver = get_driver_from_session(web, session)
+        if resolved_session in web.driver_list:
             driver.quit()
-            del web.driver_list[session]
+            del web.driver_list[resolved_session]
             SetVar(var_, True)
         else:
             print(f"Session '{session}' not found.")
@@ -159,3 +207,22 @@ if module == "close_browser":
         PrintException()
         SetVar(var_, False)
         raise e
+
+if module == "wait_for_object":
+    session = GetParams("session")
+    data = GetParams("data")
+    data_type = GetParams("data_type")
+    wait_max = GetParams("wait_max")
+    condition = GetParams("condition")
+    result = GetParams("result")
+
+    try:
+        _, driver = get_driver_from_session(web, session)
+        locator = (get_by_selector(data_type), data)
+        max_wait = float(wait_max) if wait_max not in [None, ""] else 10.0
+        founded = WebDriverWait(driver, max_wait).until(get_wait_condition(condition, locator))
+        SetVar(result, bool(founded))
+    except Exception as e:
+        if e.__class__.__name__ != "TimeoutException":
+            PrintException()
+        SetVar(result, False)
